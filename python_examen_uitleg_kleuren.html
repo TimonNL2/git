@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Uitleg Python Examen P2-K1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h2 {
+            color: #1b4f72; /* donkerblauw */
+            border-bottom: 2px solid #1b4f72;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #117864; /* groenblauw */
+        }
+        .section-label {
+            font-weight: bold;
+            color: #512e5f; /* paars */
+            margin-top: 10px;
+        }
+        .code-block {
+            background-color: #f4f6f7; /* lichtgrijs */
+            border-left: 5px solid #566573; /* donkergrijs */
+            padding: 10px;
+            margin: 10px 0;
+            font-family: Consolas, monospace;
+            white-space: pre;
+        }
+        .menu-code {
+            background-color: #d6eaf8; /* lichtblauw */
+            border-left: 5px solid #2e86c1;
+        }
+        .variables-code {
+            background-color: #e8f8f5; /* lichtgroen */
+            border-left: 5px solid #28b463;
+        }
+        .loops-code {
+            background-color: #fcf3cf; /* lichtgeel */
+            border-left: 5px solid #f39c12;
+        }
+        .functions-code {
+            background-color: #fdebd0; /* lichtoranje */
+            border-left: 5px solid #e67e22;
+        }
+        .csv-code {
+            background-color: #f9ebea; /* lichtroze */
+            border-left: 5px solid #cb4335;
+        }
+        .explanation {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Menu en gebruikersinvoer</h2>
+    <p class="explanation">
+        In een console-programma kun je een <span style="color:#117864;">menu</span> maken door de gebruiker een prompt te geven met <code>input()</code>. 
+        Bijvoorbeeld: je toont opties en laat de gebruiker kiezen. De gebruiker typt een getal of tekst in en met <code>if keuze == "1": …</code> ga je door naar de bijbehorende actie.
+    </p>
+    <div class="section-label">Voorbeeld Menu-code:</div>
+    <div class="code-block menu-code">
+print("1: Optie A")
+print("2: Optie B")
+keuze = input("Kies een optie: ")  # Gebruiker voert in als "1" of "2"
+if keuze == "1":
+    print("Je hebt Optie A gekozen")
+elif keuze == "2":
+    print("Je hebt Optie B gekozen")
+else:
+    print("Ongeldige keuze")
+    </div>
+    <p class="explanation">
+        Hier pauzeert <code>input()</code> het programma en wacht op invoer. Door deze code in een <span style="color:#f39c12;">while-lus</span> te plaatsen, kun je het menu herhalen totdat de gebruiker kiest om te stoppen. 
+    </p>
+
+    <h2>Variabelen voor gegevensopslag</h2>
+    <p class="explanation">
+        Een <span style="color:#117864;">variabele</span> is een naam die naar een waarde wijst; je gebruikt variabelen om data te bewaren voor later gebruik. 
+        Je kent een variabele een waarde toe met het <code>=</code>-teken.
+    </p>
+    <div class="section-label">Voorbeeld Variabelen-code:</div>
+    <div class="code-block variables-code">
+mijnGetal = 13
+mijnTekst = "Hallo"
+print(mijnGetal, mijnTekst)  # Drukt: 13 Hallo
+    </div>
+    <p class="explanation">
+        In dit voorbeeld sla je het getal <code>13</code> op in <code>mijnGetal</code> en de tekst <code>"Hallo"</code> in <code>mijnTekst</code>. Variabelen kunnen getallen, tekst of ander soort gegevens bevatten en zijn flexibel te wijzigen.
+    </p>
+
+    <h2>Lussen (herhaling met <code>while</code> en <code>for</code>)</h2>
+    <p class="explanation">
+        Een <span style="color:#117864;">lus</span> herhaalt een stuk code meerdere keren. Er zijn twee hoofdtypen: de <code>while</code>-lus en de <code>for</code>-lus.
+    </p>
+    <h3><code>while</code>-lus</h3>
+    <p class="explanation">
+        Een <code>while</code>-lus draait zo lang een bepaalde voorwaarde <code>True</code> is.
+    </p>
+    <div class="section-label">Voorbeeld <code>while</code>-code:</div>
+    <div class="code-block loops-code">
+x = 5
+while x > 0:            # Herhaal zolang x groter is dan 0
+    print(x)           # 5, 4, 3, 2, 1
+    x -= 1            # Verklein x met 1
+print("Klaar!")
+    </div>
+    <h3><code>for</code>-lus</h3>
+    <p class="explanation">
+        Een <code>for</code>-lus is handig om over een reeks of lijst te itereren, bijvoorbeeld met <code>range()</code>.
+    </p>
+    <div class="section-label">Voorbeeld <code>for</code>-code:</div>
+    <div class="code-block loops-code">
+for i in range(1, 4):   # i gaat achtereenvolgens 1, 2, 3 bevatten
+    print("Dit is regel", i)
+    </div>
+    <p class="explanation">
+        Dit drukt drie regels af. Een <code>for</code>-lus stopt automatisch na de laatste waarde in de reeks.
+    </p>
+
+    <h2>Functies schrijven en gebruiken</h2>
+    <p class="explanation">
+        Met <span style="color:#117864;">functies</span> kun je code organiseren in herbruikbare onderdelen. Een functie definieer je met <code>def</code> en optioneel een <code>return</code>-waarde.
+    </p>
+    <div class="section-label">Voorbeeld Functies-code:</div>
+    <div class="code-block functions-code">
+def groet(naam):
+    return f"Hallo, {naam}"
+
+print(groet("Mark"))  # Roep de functie aan met argument "Mark"
+    </div>
+    <p class="explanation">
+        De functie <code>groet</code> neemt één parameter <code>naam</code> en geeft een groettekst terug. Zo houd je code overzichtelijk en repeteer je dezelfde logica.
+    </p>
+
+    <h2>CSV-bestanden lezen en bewerken</h2>
+    <p class="explanation">
+        Python heeft de ingebouwde <code>csv</code>-module om gemakkelijk met CSV-bestanden te werken. 
+    </p>
+    <h3>Lezen van CSV</h3>
+    <div class="section-label">Voorbeeld CSV Lees-code:</div>
+    <div class="code-block csv-code">
+import csv
+
+with open('gegevens.csv', newline='') as csvfile:
+    lezer = csv.reader(csvfile)
+    for rij in lezer:
+        print(rij)  # Elke rij als lijst, bijv. ['Naam','Leeftijd']
+    </div>
+    <h3>Schrijven naar CSV</h3>
+    <div class="section-label">Voorbeeld CSV Schrijf-code:</div>
+    <div class="code-block csv-code">
+import csv
+
+with open('gegevens.csv', 'w', newline='') as csvfile:
+    schrijver = csv.writer(csvfile)
+    schrijver.writerow(['Naam', 'Leeftijd'])
+    schrijver.writerow(['Anna', '23'])
+    </div>
+    <p class="explanation">
+        Om gegevens toe te voegen, open je in append-modus (<code>'a'</code>) en gebruik je <code>writer.writerow()</code>. Om te bewerken, lees je alle regels in, wijzig je de rij in de lijst en schrijf je alles opnieuw weg.
+    </p>
+
+    <h2>Voorbeeldproject: Studentenbeheer</h2>
+    <p class="explanation">
+        Hieronder zie je een volledig voorbeeld waarin alle bovenstaande elementen samenwerken in één programma: een menu, variabelen, lussen, functies en CSV-bewerking.
+    </p>
+    <div class="code-block csv-code">
+import csv
+
+FILENAME = 'students.csv'
+
+def read_students():
+    students = []
+    with open(FILENAME, newline='') as csvfile:
+        lezer = csv.reader(csvfile)
+        for rij in lezer:
+            students.append(rij)
+    return students
+
+def toon_studenten():
+    print("\nHuidige studenten:")
+    for rij in read_students():
+        print(f"ID {rij[0]}: {rij[1]} (score {rij[2]})")
+
+def voeg_toe():
+    naam = input("Naam van de student: ")
+    score = input("Score van de student: ")
+    students = read_students()
+    nieuw_id = len(students)  # Aangenomen dat eerste ID 0 is; of +1 voor ID 1 etc.
+    with open(FILENAME, 'a', newline='') as csvfile:
+        schrijver = csv.writer(csvfile)
+        schrijver.writerow([nieuw_id, naam, score])
+    print("Student toegevoegd.")
+
+def update_score():
+    sid = input("Geef het ID van de student die je wilt bijwerken: ")
+    students = read_students()
+    gevonden = False
+    for i, rij in enumerate(students):
+        if rij[0] == sid:
+            nieuwe_score = input(f"Nieuwe score voor {rij[1]}: ")
+            students[i][2] = nieuwe_score
+            gevonden = True
+            break
+    if gevonden:
+        with open(FILENAME, 'w', newline='') as csvfile:
+            schrijver = csv.writer(csvfile)
+            for rij in students:
+                schrijver.writerow(rij)
+        print("Score bijgewerkt.")
+    else:
+        print("Student niet gevonden.")
+
+def main():
+    while True:
+        print("\nMenu:")
+        print("1: Toon alle studenten")
+        print("2: Voeg student toe")
+        print("3: Update score student")
+        print("4: Stoppen")
+        keuze = input("Maak een keuze: ")
+        if keuze == "1":
+            toon_studenten()
+        elif keuze == "2":
+            voeg_toe()
+        elif keuze == "3":
+            update_score()
+        elif keuze == "4":
+            print("Programma beëindigd.")
+            break
+        else:
+            print("Ongeldige keuze, probeer opnieuw.")
+
+# Start het programma
+main()
+    </div>
+    <p class="explanation">
+        Dit programma toont een menu, leest en schrijft <code>students.csv</code> en laat je studenten toevoegen of bijwerken met behulp van functies, variabelen en lussen.
+    </p>
+
+</body>
+</html>
